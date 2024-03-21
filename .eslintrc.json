@@ -1,0 +1,12 @@
+{
+  "extends": ["react-app"],
+  "rules": {
+    "no-console": "error"
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts?(x)"],
+      "rules": {}
+    }
+  ]
+}
