@@ -31,7 +31,7 @@ const Button: React.FC<IButtonProps> = (props) => {
   return (
     <button className={style[variant]}>
       {children}
-      {icon && <img src={icon.src} alt={icon.alt} />}
+      {variant === "link" && <img src={icon.src} alt={icon.alt} />}
     </button>
   );
 };
