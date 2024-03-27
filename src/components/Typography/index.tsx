@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./typography.styles.module.css";
 import clsx from "clsx";
+import { withHTMLAttrs } from "../../customTypes/utils";
 
 interface ITypographyProps {
   children: string;
@@ -17,13 +18,14 @@ interface ITypographyProps {
     | "body";
 }
 
-const Typography: React.FC<ITypographyProps> = (props) => {
-  const { variant = "body", as = "p", children } = props;
+const Typography: React.FC<withHTMLAttrs<ITypographyProps>> = (props) => {
+  const { variant = "body", as = "p", children, className, ...rest } = props;
 
   return React.createElement(
     as,
     {
-      className: clsx(styles.general, styles[variant]),
+      className: clsx(styles.general, styles[variant], className),
+      ...rest,
     },
     children,
   );
