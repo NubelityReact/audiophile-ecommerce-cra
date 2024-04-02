@@ -1,20 +1,14 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
-import Button from "./components/Button";
-import Typography from "./components/Typography";
+import Header from "./components/layout/Header";
 
 function App() {
   return (
-    <div className="App">
-      <header className="header" id="header">
-        <Typography variant="h1" as="h1">
-          Main title
-        </Typography>
-      </header>
-
-      <Button variant="link">
-        <Typography>Next</Typography>
-      </Button>
-    </div>
+    <>
+      <Header />
+      <Outlet />
+      <footer>this is the footer</footer>
+    </>
   );
 }
 

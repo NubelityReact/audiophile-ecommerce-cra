@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Home from "./pages/Home";
 import Category from "./pages/Category";
 import NotFound from "./pages/NotFound";
+import App from "./App";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -14,12 +15,18 @@ const root = ReactDOM.createRoot(
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
+    element: <App />,
     errorElement: <NotFound />,
-  },
-  {
-    path: "/category/:name",
-    element: <Category />,
+    children: [
+      {
+        path: "/",
+        element: <Home />,
+      },
+      {
+        path: "/category/:name",
+        element: <Category />,
+      },
+    ],
   },
 ]);
 

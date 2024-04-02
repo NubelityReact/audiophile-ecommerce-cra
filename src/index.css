@@ -17,17 +17,17 @@ code {
 
 :root {
   /* primary color */
-  --main-orange: "#D87D4A";
-  --main-black: "#101010";
+  --main-orange: #d87d4a;
+  --main-black: #101010;
 
   /* secondary colors */
-  --secondary-gray: "#f1f1f1";
-  --secondary-light-gray: "#fafafa";
-  --secondary-orage: "#fbaf85";
+  --secondary-gray: #f1f1f1;
+  --secondary-light-gray: #fafafa;
+  --secondary-orage: #fbaf85;
 
   /* neutrals */
-  --black: "#000";
-  --white: "#FFF";
+  --black: #000;
+  --white: #fff;
 
   /* typographies */
   --main-family: "Manrope", sans-serif;
