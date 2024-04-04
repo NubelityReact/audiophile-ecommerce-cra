@@ -18,7 +18,9 @@ type IButtonProps =
       icon?: IIcon;
     };
 
-const Button: React.FC<IButtonProps> = (props) => {
+const Button: React.FC<
+  IButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+> = (props) => {
   const {
     variant,
     children,
@@ -26,10 +28,11 @@ const Button: React.FC<IButtonProps> = (props) => {
       src: "/icons/arrow.svg",
       alt: "go",
     },
+    ...rest
   } = props;
 
   return (
-    <button className={style[variant]}>
+    <button className={style[variant]} {...rest}>
       {children}
       {variant === "link" && <img src={icon.src} alt={icon.alt} />}
     </button>
