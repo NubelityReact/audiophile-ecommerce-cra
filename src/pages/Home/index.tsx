@@ -1,7 +1,11 @@
-import React from "react";
+import FactorialCalculator from "../../hooks/TestUseMemo";
 
 const Home = () => {
-  return <div>Home</div>;
+  return (
+    <div>
+      <FactorialCalculator />
+    </div>
+  );
 };
 
 export default Home;

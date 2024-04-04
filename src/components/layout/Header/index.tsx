@@ -4,11 +4,14 @@ import Links from "../../Links";
 import Modal from "../../Modal/Base";
 import Typography from "../../Typography";
 import ModalCard from "../../Modal/Cart";
+import useViewportMatchSize from "../../../hooks/useViewportMatchSize";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const { match } = useViewportMatchSize("desktop");
 
   const openMenu = () => {
     setIsMenuOpen(true);
@@ -40,7 +43,7 @@ const Header = () => {
             </picture>
           </div>
 
-          <Links className={styles.links} />
+          {match && <Links />}
 
           <picture className={styles.cart} onClick={openCart}>
             <img src="/icons/cart.svg" alt="cart" />

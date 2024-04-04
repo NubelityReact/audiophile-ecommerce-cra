@@ -27,11 +27,3 @@
   display: flex;
   justify-content: flex-end;
 }
-
-.links {
-  display: none !important;
-
-  @media screen and (min-width: 1440px) {
-    display: flex !important;
-  }
-}
