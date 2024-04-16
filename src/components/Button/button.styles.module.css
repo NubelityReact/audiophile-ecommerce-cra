@@ -1,5 +1,5 @@
 .primary {
-  background-color: red;
+  background-color: var(--main-orange);
 }
 
 .outlined {

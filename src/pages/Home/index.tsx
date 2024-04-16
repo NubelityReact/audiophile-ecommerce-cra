@@ -1,15 +1,9 @@
-import FormBillingDetails from "../../components/Examples/Forms/BillingDetails";
-import MouseTracker from "../../components/Examples/Refs";
-import FactorialCalculator from "../../hooks/TestUseMemo";
+import FormCheckout from "../../components/Containers/Forms/Checkout";
 
 const Home = () => {
   return (
     <div>
-      <FactorialCalculator />
-
-      <FormBillingDetails />
-
-      <MouseTracker />
+      <FormCheckout />
     </div>
   );
 };

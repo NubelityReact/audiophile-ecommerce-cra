@@ -14,7 +14,7 @@ const MouseTracker = () => {
     const pos = { x: event.clientX, y: event.clientY };
     currentPositionRef.current = pos;
     // setPosition(pos);
-    console.log({ posx: event.clientX });
+    // console.log({ posx: event.clientX });
   };
 
   const handleClick = () => {

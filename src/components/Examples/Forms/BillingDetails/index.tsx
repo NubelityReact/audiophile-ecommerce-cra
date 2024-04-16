@@ -1,9 +1,17 @@
-import { useRef, useState } from "react";
+import { forwardRef, useImperativeHandle, useRef, useState } from "react";
 import Button from "../../../Button";
 import Typography from "../../../Typography";
 import InputText from "../../../Input/Text";
 
-const FormBillingDetails = () => {
+export interface IFormRef {
+  data: {
+    name: string;
+    email: React.MutableRefObject<HTMLInputElement | null>;
+  };
+  isValid: boolean;
+}
+
+const FormBillingDetails = forwardRef<IFormRef, unknown>((_, ref) => {
   console.log("rendering form billing details");
   const [name, setName] = useState("");
 
@@ -18,6 +26,14 @@ const FormBillingDetails = () => {
     console.log({ phone, lastName: lastNameRef.current?.value });
   };
 
+  useImperativeHandle(ref, () => ({
+    isValid: true,
+    data: {
+      name,
+      email: emailRef,
+    },
+  }));
+
   return (
     <div>
       <form action="">
@@ -27,7 +43,14 @@ const FormBillingDetails = () => {
           onChange={(e) => setName(e.target.value)}
         />
         <InputText label="Last name" id="x" ref={lastNameRef} />
-        <input type="email" ref={emailRef} />
+
+        <label
+          htmlFor="
+        "
+        >
+          Email
+          <input type="email" ref={emailRef} />
+        </label>
         <input type="tel" ref={phoneRef} />
 
         <Button variant="link" onClick={handleSubmit} type="button">
@@ -36,6 +59,6 @@ const FormBillingDetails = () => {
       </form>
     </div>
   );
-};
+});
 
 export default FormBillingDetails;

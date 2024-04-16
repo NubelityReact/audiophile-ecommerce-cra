@@ -1,0 +1,13 @@
+.container {
+}
+
+.form {
+  display: flex;
+  gap: 24px;
+  flex-direction: column;
+}
+
+.title {
+  color: var(--main-orange);
+  margin-block-start: 8px;
+}
