@@ -1,11 +1,36 @@
+.general {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 15px 30px;
+  cursor: pointer;
+  /* border: 1px solid transparent; */
+}
+
 .primary {
   background-color: var(--main-orange);
+  color: var(--white);
+}
+
+.primary:hover {
+  background-color: var(--secondary-orange);
 }
 
 .outlined {
-  background-color: blue;
+  background-color: var(--white);
+  border: 1px solid var(--black);
+}
+
+.outlined:hover {
+  background-color: var(--black);
+  border-color: transparent;
+  color: var(--white);
 }
 
 .link {
-  background-color: gold;
+  background-color: transparent;
+  border: none;
+}
+.link:hover {
+  color: var(--main-orange);
 }

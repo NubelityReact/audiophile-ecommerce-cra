@@ -5,6 +5,7 @@ import Modal from "../../Modal/Base";
 import Typography from "../../Typography";
 import ModalCard from "../../Modal/Cart";
 import useViewportMatchSize from "../../../hooks/useViewportMatchSize";
+import ModalMenu from "../../Modal/Menu";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,6 +13,10 @@ const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
 
   const { match } = useViewportMatchSize("desktop");
+
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
+  };
 
   const openMenu = () => {
     setIsMenuOpen(true);
@@ -34,7 +39,7 @@ const Header = () => {
       <div className={styles.supercontainer}>
         <header className={styles.container}>
           <div className={styles.leftColumn}>
-            <picture className={styles.menu} onClick={openMenu}>
+            <picture className={styles.menu} onClick={toggleMenu}>
               <img src="/icons/burguer-icon.svg" alt="menu" />
             </picture>
 
@@ -50,9 +55,7 @@ const Header = () => {
           </picture>
         </header>
       </div>
-      <Modal isOpen={isMenuOpen} onClose={closeMenu}>
-        <Typography>Modal content</Typography>
-      </Modal>
+      <ModalMenu isOpen={isMenuOpen} onClose={closeMenu} />
       <ModalCard isOpen={isCartOpen} onClose={closeCart} nodeId="modal2" />
     </>
   );

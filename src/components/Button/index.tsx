@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./button.styles.module.css";
+import clsx from "clsx";
 
 interface IIcon {
   src?: string;
@@ -28,11 +29,15 @@ const Button: React.FC<
       src: "/icons/arrow.svg",
       alt: "go",
     },
+    className,
     ...rest
   } = props;
 
   return (
-    <button className={style[variant]} {...rest}>
+    <button
+      className={clsx(style.general, style[variant], className)}
+      {...rest}
+    >
       {children}
       {variant === "link" && <img src={icon.src} alt={icon.alt} />}
     </button>
