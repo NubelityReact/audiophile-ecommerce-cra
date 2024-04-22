@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import styles from "./header.styles.module.css";
 import Links from "../../Links";
-import Modal from "../../Modal/Base";
-import Typography from "../../Typography";
 import ModalCard from "../../Modal/Cart";
 import useViewportMatchSize from "../../../hooks/useViewportMatchSize";
 import ModalMenu from "../../Modal/Menu";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -14,12 +13,14 @@ const Header = () => {
 
   const { match } = useViewportMatchSize("desktop");
 
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+  const router = useNavigate();
+
+  const handleNavigation = () => {
+    router("/");
   };
 
-  const openMenu = () => {
-    setIsMenuOpen(true);
+  const toggleMenu = () => {
+    setIsMenuOpen(!isMenuOpen);
   };
 
   const closeMenu = () => {
@@ -43,7 +44,7 @@ const Header = () => {
               <img src="/icons/burguer-icon.svg" alt="menu" />
             </picture>
 
-            <picture className={styles.logo}>
+            <picture className={styles.logo} onClick={handleNavigation}>
               <img src="/logo.png" alt="company's logo" />
             </picture>
           </div>
