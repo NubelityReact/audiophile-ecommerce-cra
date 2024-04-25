@@ -1,8 +1,8 @@
 import React from "react";
-import { Image, withHTMLAttrs } from "../../customTypes/utils";
-import Typography from "../Typography";
+import { Image, withHTMLAttrs } from "../../../customTypes/utils";
+import Typography from "../../Typography";
 import { Link } from "react-router-dom";
-import Button from "../Button";
+import Button from "../../Button";
 import styles from "./add.styles.module.css";
 import clsx from "clsx";
 
