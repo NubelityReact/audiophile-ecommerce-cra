@@ -1,5 +1,6 @@
 import Ad from "../../components/Ad";
 import CategoryNavigation from "../../components/Containers/CategoryNavigation";
+import Icon from "../../components/Icon";
 import Hero from "../../components/layout/Hero";
 import { CategoryNavigationData } from "../../data/categoryNavigation";
 import useViewportMatchSize from "../../hooks/useViewportMatchSize";
@@ -24,11 +25,28 @@ const Home = () => {
       />
 
       <Ad
-        img={{ src: "/assets/nav/headphones.png", alt: "" }}
+        img={{ src: "/assets/ads/speaker zx9.png", alt: "" }}
         type="A"
+        title="ZX9 Speaker"
+        description="Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound."
+        href="/"
+        style={{ maxWidth: 327 }}
+      />
+
+      <Ad
+        img={{ src: "/assets/ads/speaker zx7.png", alt: "" }}
+        type="B"
         title="ZX7 Speaker"
         href="/"
-        description="Description"
+        style={{ maxWidth: 327 }}
+      />
+
+      <Ad
+        img={{ src: "/assets/ads/yx1 earphones.png", alt: "" }}
+        type="C"
+        title="ZX9 Speaker"
+        href="/"
+        style={{ maxWidth: 327 }}
       />
       <CategoryNavigation cards={CategoryNavigationData} />
     </div>

@@ -1,0 +1,30 @@
+.container {
+  position: relative;
+  width: min-content;
+}
+
+.floatContent {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 8px;
+  background-color: rgb(154, 65, 65);
+  color: white;
+  display: grid;
+  place-content: center;
+  font-size: 1.2rem;
+  top: -12px;
+  right: -12px;
+}
+
+.iconContainer {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+}

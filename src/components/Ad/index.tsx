@@ -44,14 +44,23 @@ const Ad: React.FC<withHTMLAttrs<IAdProps>> = (props) => {
       className={clsx(styles.container, styles["container" + type], className)}
       {...rest}
     >
-      <picture className={styles.imgContainer}>
+      <picture className={styles["imgContainer" + type]}>
         <img {...img} alt={img.alt} className={styles.img} />
       </picture>
-      <div className={styles.content}>
-        <Typography as={heading}>{title}</Typography>
+      <div className={clsx(styles.content, styles["content" + type])}>
+        <Typography
+          as={heading}
+          variant="h4"
+          className={clsx(type === "A" && styles.titleA)}
+        >
+          {title}
+        </Typography>
         {description && <Typography>{description}</Typography>}
-        <Link to={href}>
-          <Button variant="outlined">
+        <Link to={href} className={styles.link}>
+          <Button
+            variant="outlined"
+            className={clsx(styles.button, styles["button" + type])}
+          >
             <Typography variant="subtitle">{textButton}</Typography>
           </Button>
         </Link>

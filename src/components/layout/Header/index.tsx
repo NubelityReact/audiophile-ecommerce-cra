@@ -5,6 +5,7 @@ import ModalCard from "../../Modal/Cart";
 import useViewportMatchSize from "../../../hooks/useViewportMatchSize";
 import ModalMenu from "../../Modal/Menu";
 import { useNavigate } from "react-router-dom";
+import Icon from "../../Icon";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,20 +41,24 @@ const Header = () => {
       <div className={styles.supercontainer}>
         <header className={styles.container}>
           <div className={styles.leftColumn}>
-            <picture className={styles.menu} onClick={toggleMenu}>
-              <img src="/icons/burguer-icon.svg" alt="menu" />
-            </picture>
+            <Icon
+              icon={{ src: "/icons/burger-icon.svg", alt: "menu icon" }}
+              onClick={toggleMenu}
+            />
 
-            <picture className={styles.logo} onClick={handleNavigation}>
-              <img src="/logo.png" alt="company's logo" />
-            </picture>
+            <Icon
+              icon={{ src: "/logo.png", alt: "company's logo", width: 140 }}
+              onClick={handleNavigation}
+            />
           </div>
 
           {match && <Links />}
 
-          <picture className={styles.cart} onClick={openCart}>
-            <img src="/icons/cart.svg" alt="cart" />
-          </picture>
+          <Icon
+            icon={{ src: "/icons/cart.svg", alt: "cart" }}
+            onClick={openCart}
+            n={5}
+          />
         </header>
       </div>
       <ModalMenu isOpen={isMenuOpen} onClose={closeMenu} />
