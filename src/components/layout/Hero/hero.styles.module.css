@@ -55,6 +55,25 @@
 }
 
 @media screen and (min-width: 768px) {
+  .container {
+    min-height: 639px;
+  }
+
+  .imgContainer {
+    height: 100%;
+  }
+
+  .img {
+    height: 100%;
+    top: 0;
+  }
+
+  .content {
+    max-width: 380px;
+  }
+  .paragraph {
+    padding-inline: 0.5rem;
+  }
 }
 
 @media screen and (min-width: 1440px) {

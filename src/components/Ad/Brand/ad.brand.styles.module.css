@@ -34,6 +34,7 @@
   .imgContainer {
     grid-column: 2;
     grid-row: 1 / 6;
+    justify-self: stretch;
   }
 
   .title {

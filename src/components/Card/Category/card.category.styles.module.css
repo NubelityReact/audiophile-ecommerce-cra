@@ -25,3 +25,9 @@
   padding-inline: 108px;
   margin-block-start: 52px;
 }
+
+@media screen and (min-width: 768px) {
+  .body {
+    padding-inline: initial;
+  }
+}

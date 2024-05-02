@@ -6,11 +6,14 @@ import useViewportMatchSize from "../../../hooks/useViewportMatchSize";
 import ModalMenu from "../../Modal/Menu";
 import { useNavigate } from "react-router-dom";
 import Icon from "../../Icon";
+import { useCartContext } from "../../../context/cart";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isCartOpen, setIsCartOpen] = useState(false);
+
+  const { items } = useCartContext();
 
   const { match } = useViewportMatchSize("desktop");
 
@@ -57,7 +60,9 @@ const Header = () => {
           <Icon
             icon={{ src: "/icons/cart.svg", alt: "cart" }}
             onClick={openCart}
-            n={5}
+            n={items.reduce((acc, item) => {
+              return acc + item.amount;
+            }, 0)}
           />
         </header>
       </div>

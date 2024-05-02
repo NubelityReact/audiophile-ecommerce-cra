@@ -3,10 +3,12 @@
   flex-direction: column;
   gap: 16px;
   background-color: white;
+  overflow: hidden;
 }
 
 .link {
   text-decoration: none;
+  flex: 1 0 auto;
 }
 .link:visited {
   color: initial;
@@ -15,5 +17,11 @@
 @media screen and (min-width: 768px) {
   .container {
     flex-direction: row;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1110px;
   }
 }

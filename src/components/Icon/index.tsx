@@ -10,7 +10,9 @@ interface IIconProps {
 const Icon: React.FC<withHTMLAttrs<IIconProps>> = ({ n, icon, ...attrs }) => {
   return (
     <div className={styles.container} {...attrs}>
-      {n && <span className={styles.floatContent}>{n}</span>}
+      {typeof n === "number" && (
+        <span className={styles.floatContent}>{n}</span>
+      )}
       <picture
         className={styles.iconContainer}
         style={{ width: icon.width, height: icon.height }}
