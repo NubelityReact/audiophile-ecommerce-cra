@@ -1,3 +1,4 @@
 .overlay {
-  border: 1px solid crimson;
+  height: 100vh;
+  top: 80px;
 }

@@ -1,5 +1,5 @@
 import { forwardRef, useImperativeHandle, useRef, useState } from "react";
-import Button from "../../../Button";
+import Button from "../../../Button/Base";
 import Typography from "../../../Typography";
 import InputText from "../../../Input/Text";
 
@@ -12,14 +12,11 @@ export interface IFormRef {
 }
 
 const FormBillingDetails = forwardRef<IFormRef, unknown>((_, ref) => {
-  console.log("rendering form billing details");
   const [name, setName] = useState("");
 
   const emailRef = useRef<HTMLInputElement | null>(null);
   const phoneRef = useRef<HTMLInputElement | null>(null);
   const lastNameRef = useRef<HTMLInputElement | null>(null);
-
-  console.log({ phoneRef });
 
   const handleSubmit = () => {
     const phone = phoneRef.current?.value;

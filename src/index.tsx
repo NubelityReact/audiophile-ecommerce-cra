@@ -7,6 +7,8 @@ import Home from "./pages/Home";
 import Category from "./pages/Category";
 import NotFound from "./pages/NotFound";
 import App from "./App";
+import ProductDetails from "./pages/ProductDetails";
+import Checkout from "./pages/Checkout";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -23,8 +25,16 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
+        path: "/checkout",
+        element: <Checkout />,
+      },
+      {
         path: "/category/:name",
         element: <Category />,
+      },
+      {
+        path: "/product-details/:id",
+        element: <ProductDetails />,
       },
     ],
   },

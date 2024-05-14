@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { createPortal } from "react-dom";
 import styles from "./modal.base.styles.module.css";
 import clsx from "clsx";
@@ -15,6 +15,16 @@ export interface IModalProps {
 const Modal: React.FC<IModalProps> = (props) => {
   const { isOpen, nodeId = "modal", ...rest } = props;
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflowY = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflowY = "initial";
+    };
+  }, [isOpen]);
+
   if (!isOpen) {
     return null;
   }
@@ -25,13 +35,29 @@ const Modal: React.FC<IModalProps> = (props) => {
   );
 };
 
-const ModalChildren: React.FC<Omit<IModalProps, "nodeId" | "isOpen">> = (
-  props,
-) => {
-  const { children, onClose, containerStyles, contentStyles } = props;
+const ModalChildren: React.FC<Omit<IModalProps, "nodeId" | "isOpen">> = ({
+  children,
+  onClose,
+  containerStyles,
+  contentStyles,
+}) => {
+  const handleBackdropClick = (event: React.MouseEvent) => {
+    if (event.target === event.currentTarget) {
+      onClose();
+    }
+  };
+
   return (
-    <div className={clsx(styles.container, containerStyles)} onClick={onClose}>
-      <div className={clsx(styles.content, contentStyles)}>{children}</div>
+    <div
+      className={clsx(styles.container, containerStyles)}
+      onClick={handleBackdropClick}
+    >
+      <div
+        className={clsx(styles.content, contentStyles)}
+        onClick={(e) => e.stopPropagation()}
+      >
+        {children}
+      </div>
     </div>
   );
 };

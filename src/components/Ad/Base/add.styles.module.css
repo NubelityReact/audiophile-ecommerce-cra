@@ -84,13 +84,12 @@
 .link {
   text-decoration: none;
 }
-
 .button {
   background-color: transparent;
-  color: var(--black);
+  color: black;
 }
 
 .buttonA {
-  background-color: black;
+  background-color: black !important;
   color: white;
 }

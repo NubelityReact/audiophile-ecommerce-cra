@@ -1,0 +1,47 @@
+.container {
+  position: relative;
+  background-color: var(--black);
+  display: grid;
+  gap: 48px;
+  justify-content: center;
+  text-align: center;
+  color: var(--white);
+  padding: 52px 24px 38px;
+}
+
+.container::before {
+  content: "";
+  width: 101px;
+  height: 4px;
+  background-color: var(--main-orange);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.logoContainer {
+  display: flex;
+  justify-content: center;
+}
+
+.links {
+  flex-direction: column;
+  gap: 16px;
+}
+
+.text {
+  opacity: 0.5;
+}
+
+.copyright {
+  opacity: 0.5;
+}
+
+.icons {
+  justify-self: center;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  list-style: none;
+}

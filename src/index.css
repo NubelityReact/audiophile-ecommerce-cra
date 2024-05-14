@@ -23,7 +23,7 @@ code {
   /* secondary colors */
   --secondary-gray: #f1f1f1;
   --secondary-light-gray: #fafafa;
-  --secondary-orage: #fbaf85;
+  --secondary-orange: #fbaf85;
 
   /* neutrals */
   --black: #000;
@@ -47,4 +47,12 @@ picture {
 
 img {
   display: block;
+}
+
+.orange {
+  color: var(--main-orange);
+}
+
+a {
+  text-decoration: none;
 }

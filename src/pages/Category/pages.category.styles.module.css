@@ -1,0 +1,12 @@
+.content {
+  padding: 64px 24px 120px;
+  display: grid;
+  gap: 120px;
+}
+
+.header {
+  background-color: var(--black);
+  color: var(--white);
+  padding: 32px 0;
+  text-align: center;
+}

@@ -1,12 +1,20 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import InputText from "../../../Input/Text";
 import Typography from "../../../Typography";
-import Button from "../../../Button";
+import Button from "../../../Button/Base";
 import InputRadio, { IRadioOption } from "../../../Input/Radio";
-import { useEffect, useState } from "react";
+import {
+  BaseSyntheticEvent,
+  forwardRef,
+  useEffect,
+  useImperativeHandle,
+  useRef,
+  useState,
+} from "react";
 import styles from "./form.checkout.styles.module.css";
+import ModalOrderConfirmation from "../../../Modal/OrderConfirmation";
 
-interface IFormCheckout {
+export interface IFormCheckout {
   name: string;
   email: string;
   phone: string;
@@ -19,22 +27,43 @@ interface IFormCheckout {
   emoneyPin: string;
 }
 
-const FormCheckout = () => {
+export type ISubmitFormCheckoutCb = (
+  e?: BaseSyntheticEvent<object, any, any> | undefined,
+) => Promise<void>;
+
+export interface IFormCheckoutRef {
+  onSubmit: () => void;
+}
+
+const FormCheckout = forwardRef<IFormCheckoutRef, any>((_, ref) => {
   const {
     register,
     formState: { errors },
+
     handleSubmit,
     watch,
   } = useForm<IFormCheckout>();
 
   const [paymentOptions, setPaymentOptions] = useState<IRadioOption[]>([]);
+  const [isOpen, setModalOpen] = useState(false);
+  const formRef = useRef<HTMLFormElement | null>(null);
 
   const selectedPaymentMethod = watch("paymentMethod");
 
   const onSubmit: SubmitHandler<IFormCheckout> = (data) => {
     // enviar al backend los datos del formulario
     console.log({ data });
+
+    window.scrollTo(0, 0);
+    setModalOpen(true);
   };
+
+  useImperativeHandle(ref, () => ({
+    onSubmit: () =>
+      formRef.current?.dispatchEvent(
+        new Event("submit", { cancelable: true, bubbles: true }),
+      ),
+  }));
 
   useEffect(() => {
     window
@@ -59,7 +88,11 @@ const FormCheckout = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+      <form
+        ref={formRef}
+        onSubmit={handleSubmit(onSubmit)}
+        className={styles.form}
+      >
         <Typography variant="subtitle" className={styles.title}>
           Billing details
         </Typography>
@@ -174,12 +207,14 @@ const FormCheckout = () => {
             />
           </>
         )}
-        <Button variant="primary">
-          <Typography>Enviar</Typography>
-        </Button>
       </form>
+
+      <ModalOrderConfirmation
+        isOpen={isOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </div>
   );
-};
+});
 
 export default FormCheckout;

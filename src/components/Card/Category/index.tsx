@@ -1,7 +1,7 @@
 import React from "react";
 import { Image } from "../../../customTypes/utils";
 import Typography from "../../Typography";
-import Button from "../../Button";
+import Button from "../../Button/Base";
 import styles from "./card.category.styles.module.css";
 
 export interface ICardCaterogyProps {

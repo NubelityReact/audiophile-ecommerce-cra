@@ -1,0 +1,19 @@
+.container {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  gap: 24px;
+}
+
+.imgContainer {
+  width: 100%;
+  margin-block-end: 8px;
+}
+
+.img {
+  width: 100%;
+}
+
+.description {
+  opacity: 0.5;
+}

@@ -6,14 +6,15 @@ import useViewportMatchSize from "../../../hooks/useViewportMatchSize";
 import ModalMenu from "../../Modal/Menu";
 import { useNavigate } from "react-router-dom";
 import Icon from "../../Icon";
-import { useCartContext } from "../../../context/cart";
+import { useSelector } from "react-redux";
+import { RootState } from "../../../redux/store";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const [isCartOpen, setIsCartOpen] = useState(false);
 
-  const { items } = useCartContext();
+  const cartState = useSelector((state: RootState) => state.cart);
 
   const { match } = useViewportMatchSize("desktop");
 
@@ -60,9 +61,8 @@ const Header = () => {
           <Icon
             icon={{ src: "/icons/cart.svg", alt: "cart" }}
             onClick={openCart}
-            n={items.reduce((acc, item) => {
-              return acc + item.amount;
-            }, 0)}
+            n={cartState.totalItems}
+            className={styles.cart}
           />
         </header>
       </div>
